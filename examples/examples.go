@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/GmSSL/GmSSL-Go"
+	"github.com/TENX-S/GmSSL-Go"
 )
 
 func main() {
@@ -77,7 +77,6 @@ func main() {
 	ctr_plaintext = append(ctr_plaintext, ctr_plaintext_last...)
 	fmt.Printf("plaintext = %x\n", ctr_plaintext)
 
-
 	fmt.Printf("Sm4GcmMinIvSize = %d\n", gmssl.Sm4GcmMinIvSize)
 	fmt.Printf("Sm4GcmMinIvSize = %d\n", gmssl.Sm4GcmMinIvSize)
 	fmt.Printf("Sm4GcmDefaultIvSize = %d\n", gmssl.Sm4GcmDefaultIvSize)
@@ -97,7 +96,6 @@ func main() {
 	gcm_plaintext_last, _ := sm4_gcm_dec.Finish()
 	gcm_plaintext = append(gcm_plaintext, gcm_plaintext_last...)
 	fmt.Printf("plaintext = %x\n", gcm_plaintext)
-
 
 	fmt.Printf("ZucKeySize = %d\n", gmssl.ZucKeySize)
 	fmt.Printf("ZucIvSize = %d\n", gmssl.ZucIvSize)
@@ -135,7 +133,6 @@ func main() {
 	ret := sm2pub.Verify(dgst, signature)
 	fmt.Print("Verify success = ", ret, "\n")
 
-
 	sign, _ := gmssl.NewSm2Signature(sm2pri, gmssl.Sm2DefaultId, true)
 	sign.Update([]byte("abc"))
 	signature1, _ := sign.Sign()
@@ -145,7 +142,6 @@ func main() {
 	sign.Update([]byte("abc"))
 	ret1 := sign.Verify(signature1)
 	fmt.Print("Sm2Signature Verify success = ", ret1, "\n")
-
 
 	sm2_ciphertext, _ := sm2pub.Encrypt([]byte("abc"))
 	sm2_plaintext, _ := sm2pri.Decrypt(sm2_ciphertext)
@@ -198,31 +194,28 @@ func main() {
 	fmt.Print("Sm9 Verify success : ", sm9_verify_ret, "\n")
 
 	/*
-	cert, _ := gmssl.ImportSm2CertificatePem("ROOTCA.pem")
-	serial, _ := cert.GetSerialNumber()
-	fmt.Printf("SerialNumber : %x\n", serial)
+		cert, _ := gmssl.ImportSm2CertificatePem("ROOTCA.pem")
+		serial, _ := cert.GetSerialNumber()
+		fmt.Printf("SerialNumber : %x\n", serial)
 
-	not_before, not_after, _ := cert.GetValidity()
-	fmt.Println("NotBefore : ", not_before)
-	fmt.Println("NotAfter : ", not_after)
-
-
-	issuer_raw, issuer, _ := cert.GetIssuer()
-	fmt.Println("Issuer: ", issuer)
-	fmt.Printf("Issuer (raw) : %x\n", issuer_raw)
-
-	subject_raw, subject, _ := cert.GetSubject()
-	fmt.Println("Subject: ", subject)
-	fmt.Printf("Subject (raw) : %x\n", subject_raw)
+		not_before, not_after, _ := cert.GetValidity()
+		fmt.Println("NotBefore : ", not_before)
+		fmt.Println("NotAfter : ", not_after)
 
 
-	subject_public_key, _ := cert.GetSubjectPublicKey()
-	subject_public_key.ExportPublicKeyInfoPem("subject_public_key.pem")
+		issuer_raw, issuer, _ := cert.GetIssuer()
+		fmt.Println("Issuer: ", issuer)
+		fmt.Printf("Issuer (raw) : %x\n", issuer_raw)
 
-	cert_verify_ret := cert.VerifyByCaCertificate(cert, gmssl.Sm2DefaultId)
-	fmt.Println("Cert Verify success : ", cert_verify_ret)
+		subject_raw, subject, _ := cert.GetSubject()
+		fmt.Println("Subject: ", subject)
+		fmt.Printf("Subject (raw) : %x\n", subject_raw)
+
+
+		subject_public_key, _ := cert.GetSubjectPublicKey()
+		subject_public_key.ExportPublicKeyInfoPem("subject_public_key.pem")
+
+		cert_verify_ret := cert.VerifyByCaCertificate(cert, gmssl.Sm2DefaultId)
+		fmt.Println("Cert Verify success : ", cert_verify_ret)
 	*/
 }
-
-
-

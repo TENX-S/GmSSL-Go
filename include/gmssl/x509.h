@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  Copyright 2014-2023 The GmSSL Project. All Rights Reserved.
  *
  *  Licensed under the Apache License, Version 2.0 (the License); you may
@@ -6,14 +6,11 @@
  *
  *  http://www.apache.org/licenses/LICENSE-2.0
  */
-/* +build cgo */
 
-package gmssl
 
-/*
-#cgo CFLAGS: -I./include
-#cgo darwin LDFLAGS: -L./lib/darwin -lgmssl -framework Security
-#cgo linux LDFLAGS: -lgmssl -L/usr/lib -lcrypto -lssl
-#cgo windows LDFLAGS: -lgmssl
-*/
-import "C"
+#ifndef GMSSL_X509_H
+#define GMSSL_X509_H
+
+#include <gmssl/x509_cer.h>
+
+#endif

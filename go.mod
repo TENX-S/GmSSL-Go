@@ -1,3 +1,3 @@
-module github.com/GmSSL/GmSSL-Go
+module github.com/TENX-S/GmSSL-Go
 
-go 1.21.1
+go 1.22.2
