@@ -13,7 +13,8 @@ package gmssl
 /*
 #cgo CFLAGS: -I./include
 #cgo darwin LDFLAGS: -L./lib/darwin -lgmssl -framework Security
-#cgo linux LDFLAGS: -lgmssl -L/usr/lib -lcrypto -lssl
+#cgo linux,amd64 LDFLAGS: -L./lib/linux-amd64 -lgmssl -L/usr/lib -lcrypto -lssl
+#cgo linux,arm64 LDFLAGS: -L./lib/linux-arm64 -lgmssl -L/usr/lib -lcrypto -lssl
 #cgo windows,amd64 LDFLAGS: -L./lib/windows-amd64 -lgmssl
 */
 import "C"
