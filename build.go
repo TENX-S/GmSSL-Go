@@ -15,7 +15,7 @@ package gmssl
 #cgo darwin LDFLAGS: -L./lib/darwin -lgmssl -framework Security
 #cgo linux,amd64 LDFLAGS: -L./lib/linux-amd64 -lgmssl
 #cgo linux,arm64 LDFLAGS: -L./lib/linux-arm64 -lgmssl
-#cgo linux,arm LDFLAGS: -L./lib/linux-arm64 -lgmssl
+#cgo linux,arm LDFLAGS: -L./lib/linux-armv7 -lgmssl
 #cgo windows,amd64 LDFLAGS: -L./lib/windows-amd64 -lgmssl -lws2_32
 */
 import "C"
